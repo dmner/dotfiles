@@ -1,0 +1,34 @@
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
+#hardstatus alwayslastline " %{= wk} %c | %d.%m.%Y | %{= Bw} %w %{= dd} "
+# support color X terminals
+termcap xterm 'XT:AF=\E[3%dm:AB=\E[4%dm:AX'
+terminfo xterm 'XT:AF=\E[3%p1%dm:AB=\E[4%p1%dm:AX'
+termcapinfo xterm 'XT:AF=\E[3%p1%dm:AB=\E[4%p1%dm:AX:hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcap xtermc 'XT:AF=\E[3%dm:AB=\E[4%dm:AX'
+terminfo xtermc 'XT:AF=\E[3%p1%dm:AB=\E[4%p1%dm:AX'
+termcapinfo xtermc 'XT:AF=\E[3%p1%dm:AB=\E[4%p1%dm:AX:hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+
+#bind f11 and f12 to next screen and previous screen
+bindkey -k F1 prev
+bindkey -k F2 next
+
+#enable multiple users by default
+multiuser on
+
+#scrollback
+defscrollback 30000
+
+
+# detach on hangup
+autodetach on
+# no startup msg
+startup_message off
+# always use a login shell
+shell -$SHELL
+
+# auto-log
+logfile $HOME/log/screen-logs/%Y%m%d-%n.log
+deflog on
